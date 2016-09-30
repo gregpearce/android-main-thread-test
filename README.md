@@ -2,7 +2,7 @@
 -
 I was reading through the code of the [Mosby](https://github.com/sockeqwe/mosby) library, an MVP architecture library that uses a pattern of retaining a Presenter class with a weak View reference during configuration changes. 
 
-I've tried to do something similar than this before and found it to be a total mess, since you just don't know if during the configuration change the Presenter will receive input from somewhere, for example the result of a previous network call, and attempt to use the View reference, which doesn't exist, resulting in a null pointer exception.
+I've tried to do something similar than this before and found it to be a total mess, since you just don't know if during a configuration change the Presenter will receive input from somewhere, for example the result of a previous network call, and attempt to use the View reference, which doesn't exist, resulting in a null pointer exception.
 
 Mosby outlines this problem in [this section of the documentation](https://github.com/sockeqwe/mosby/blob/58095a3a22cbf39c7f1422ef3b580daee7811547/mvp-common/src/main/java/com/hannesdorfmann/mosby/mvp/MvpBasePresenter.java#L37-L37) and describes that in a "perfect world" where you can be sure that you only attempt to call methods on the View on the main thread, you can avoid this problem. 
 
